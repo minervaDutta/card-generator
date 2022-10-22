@@ -10,15 +10,21 @@ window.onload = function() {
   console.log("Hello Rigo from the console!");
 };
 
-var suite = ["hearts", "spades", "clubs","diamonds"];
+var suite = ["heart", "spade", "club","diamond"];
 var cards = ["A",2,3,4,5,6,7,8,9,10,"J","Q","K"];
+var numberElement = document.querySelector(".content");
 
 let cardIndex = Math.floor(Math.random()* cards.length);
 let suiteIndex = Math.floor(Math.random()* suite.length);
 
 console.log(cards[cardIndex]);
-if (suite[suiteIndex]==="spades"){
-  document.querySelector(".card").className = "card spade";
-};
+if (suite[suiteIndex]==="spade"||suite[suiteIndex]==="club"){
+  numberElement.style.color = "black";
+}
 
-document.querySelector(".content").innerHTML = cards[cardIndex] + " "+suite[suiteIndex] ;
+else{
+  numberElement.style.color = "red";
+}
+
+numberElement.innerHTML = cards[cardIndex];
+document.querySelector(".card").className = "card" + " " +suite[suiteIndex];
